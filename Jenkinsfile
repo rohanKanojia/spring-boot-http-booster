@@ -1,8 +1,7 @@
-podTemplate(name: 'maven33', label: 'maven33', cloud: 'openshift', containers: [
+podTemplate(name: 'maven33', label: 'maven33', cloud: 'openshift', serviceAccount: 'jenkins', containers: [
     containerTemplate(name: 'jnlp',
         image: 'openshift/jenkins-slave-maven-centos7',
         workingDir: '/tmp',
-        serviceAccount: 'jenkins',
         envVars: [
             envVar(key: 'MAVEN_MIRROR_URL',value: 'http://nexus-myproject.192.168.64.91.nip.io/nexus/content/groups/public/')
         ],
